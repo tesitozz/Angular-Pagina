@@ -1,0 +1,31 @@
+<div class="container mt-4">
+  <h2 class="mb-4">Lista de Usuarios</h2>
+  <button (click)="irACrearUsuario()" class="btn btn-success btn-sm mb-3">
+    Crear Usuario
+  </button>
+  <table class="table table-bordered table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Nombre Completo</th>
+        <th>Usuario</th>
+        <th>Correo Electrónico</th>
+        <th>Móvil</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let usuario of usuarios; let i = index">
+        <td>{{ usuario.id }}</td>
+        <td>{{ usuario.nombre }} {{ usuario.apellidos }}</td>
+        <td>{{ usuario.usuario }}</td>
+        <td>{{ usuario.correo }}</td>
+        <td>{{ usuario.movil }}</td>
+        <td>
+          <button (click)="irAActualizarUsuario(usuario.id)" class="btn btn-primary btn-sm me-2">Editar</button>
+          <button (click)="eliminarUsuario(usuario.id)" class="btn btn-danger btn-sm">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

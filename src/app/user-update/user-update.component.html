@@ -1,0 +1,72 @@
+<div class="container mt-4">
+  <h2>Actualizar Usuario</h2>
+  <form [formGroup]="formulario" (ngSubmit)="actualizarUsuario()">
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre</label>
+      <input
+        type="text"
+        id="nombre"
+        class="form-control"
+        formControlName="nombre"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="apellidos" class="form-label">Apellidos</label>
+      <input
+        type="text"
+        id="apellidos"
+        class="form-control"
+        formControlName="apellidos"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="usuario" class="form-label">Usuario</label>
+      <input
+        type="text"
+        id="usuario"
+        class="form-control"
+        formControlName="usuario"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="contra" class="form-label">Contraseña</label>
+      <input
+        type="password"
+        id="contra"
+        class="form-control"
+        formControlName="contra"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="correo" class="form-label">Correo Electrónico</label>
+      <input
+        type="email"
+        id="correo"
+        class="form-control"
+        formControlName="correo"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="movil" class="form-label">Móvil</label>
+      <input
+        type="text"
+        id="movil"
+        class="form-control"
+        formControlName="movil"
+        required
+      />
+    </div>
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="formulario.invalid"
+    >
+      Actualizar
+    </button>
+  </form>
+</div>

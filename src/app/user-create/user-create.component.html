@@ -1,0 +1,128 @@
+<div class="container mt-4">
+  <h2>Crear Usuario</h2>
+  <form [formGroup]="formulario" (ngSubmit)="crearUsuario()">
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre</label>
+      <input
+        type="text"
+        id="nombre"
+        class="form-control"
+        formControlName="nombre"
+        placeholder="Ingrese el nombre"
+      />
+      <div
+        *ngIf="
+          formulario.get('nombre')?.invalid && formulario.get('nombre')?.touched
+        "
+        class="text-danger"
+      >
+        Nombre es requerido.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="apellidos" class="form-label">Apellidos</label>
+      <input
+        type="text"
+        id="apellidos"
+        class="form-control"
+        formControlName="apellidos"
+        placeholder="Ingrese los apellidos"
+      />
+      <div
+        *ngIf="
+          formulario.get('apellidos')?.invalid &&
+          formulario.get('apellidos')?.touched
+        "
+        class="text-danger"
+      >
+        Apellidos son requeridos.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="usuario" class="form-label">Usuario</label>
+      <input
+        type="text"
+        id="usuario"
+        class="form-control"
+        formControlName="usuario"
+        placeholder="Ingrese un nombre de usuario"
+      />
+      <div
+        *ngIf="
+          formulario.get('usuario')?.invalid &&
+          formulario.get('usuario')?.touched
+        "
+        class="text-danger"
+      >
+        Usuario es requerido.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="contra" class="form-label">Contraseña</label>
+      <input
+        type="password"
+        id="contra"
+        class="form-control"
+        formControlName="contra"
+        placeholder="Ingrese una contraseña"
+      />
+      <div
+        *ngIf="
+          formulario.get('contra')?.invalid && formulario.get('contra')?.touched
+        "
+        class="text-danger"
+      >
+        Contraseña debe tener al menos 6 caracteres.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="correo" class="form-label">Correo Electrónico</label>
+      <input
+        type="email"
+        id="correo"
+        class="form-control"
+        formControlName="correo"
+        placeholder="Ingrese un correo electrónico válido"
+      />
+      <div
+        *ngIf="
+          formulario.get('correo')?.invalid && formulario.get('correo')?.touched
+        "
+        class="text-danger"
+      >
+        Correo debe ser válido.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="movil" class="form-label">Móvil</label>
+      <input
+        type="text"
+        id="movil"
+        class="form-control"
+        formControlName="movil"
+        placeholder="Ingrese un número móvil"
+      />
+      <div
+        *ngIf="
+          formulario.get('movil')?.invalid && formulario.get('movil')?.touched
+        "
+        class="text-danger"
+      >
+        Móvil debe contener solo números.
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-success"
+      [disabled]="formulario.invalid"
+    >
+      Crear Usuario
+    </button>
+  </form>
+</div>
