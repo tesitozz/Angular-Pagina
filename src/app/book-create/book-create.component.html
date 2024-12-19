@@ -1,1 +1,147 @@
-<p>book-create works!</p>
+<div class="container mt-4">
+  <h2 class="mb-4">Crear Libro</h2>
+  <form [formGroup]="formulario" (ngSubmit)="crearLibro()">
+    <div class="form-group mb-3">
+      <label for="titulo">Título</label>
+      <input
+        id="titulo"
+        type="text"
+        class="form-control"
+        formControlName="titulo"
+        placeholder="Título del libro"
+      />
+      <div
+        *ngIf="
+          formulario.get('titulo')?.invalid && formulario.get('titulo')?.touched
+        "
+        class="text-danger"
+      >
+        El título es obligatorio.
+      </div>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="descripcion">Descripción</label>
+      <input
+        id="descripcion"
+        type="text"
+        class="form-control"
+        formControlName="descripcion"
+        placeholder="Descripción del libro"
+      />
+      <div
+        *ngIf="
+          formulario.get('descripcion')?.invalid &&
+          formulario.get('descripcion')?.touched
+        "
+        class="text-danger"
+      >
+        La descripción es obligatoria.
+      </div>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="autor">Autor</label>
+      <input
+        id="autor"
+        type="text"
+        class="form-control"
+        formControlName="autor"
+        placeholder="Autor del libro"
+      />
+      <div
+        *ngIf="
+          formulario.get('autor')?.invalid && formulario.get('autor')?.touched
+        "
+        class="text-danger"
+      >
+        El autor es obligatorio.
+      </div>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="genero">Género</label>
+      <input
+        id="genero"
+        type="text"
+        class="form-control"
+        formControlName="genero"
+        placeholder="Género del libro"
+      />
+      <div
+        *ngIf="
+          formulario.get('genero')?.invalid && formulario.get('genero')?.touched
+        "
+        class="text-danger"
+      >
+        El género es obligatorio.
+      </div>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="publicacion">Fecha de Publicación</label>
+      <input
+        id="publicacion"
+        type="date"
+        class="form-control"
+        formControlName="publicacion"
+      />
+      <div
+        *ngIf="
+          formulario.get('publicacion')?.invalid &&
+          formulario.get('publicacion')?.touched
+        "
+        class="text-danger"
+      >
+        La fecha de publicación es obligatoria.
+      </div>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="portada">Portada (URL)</label>
+      <input
+        id="portada"
+        type="text"
+        class="form-control"
+        formControlName="portada"
+        placeholder="URL de la portada"
+      />
+      <div
+        *ngIf="
+          formulario.get('portada')?.invalid &&
+          formulario.get('portada')?.touched
+        "
+        class="text-danger"
+      >
+        La portada es obligatoria.
+      </div>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="stock">Stock</label>
+      <input
+        id="stock"
+        type="number"
+        class="form-control"
+        formControlName="stock"
+        placeholder="Stock del libro"
+      />
+      <div
+        *ngIf="
+          formulario.get('stock')?.invalid && formulario.get('stock')?.touched
+        "
+        class="text-danger"
+      >
+        El stock es obligatorio y debe ser un número mayor a 0.
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="formulario.invalid"
+    >
+      Crear Libro
+    </button>
+  </form>
+</div>

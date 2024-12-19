@@ -1,1 +1,45 @@
-<p>book-list works!</p>
+<div class="container mt-4">
+  <h2 class="mb-4">Lista de Libros</h2>
+  <button (click)="irACrearLibro()" class="btn btn-success btn-sm mb-3">
+    Crear Libro
+  </button>
+  <table class="table table-bordered table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Título</th>
+        <th>Descripción</th>
+        <th>Autor</th>
+        <th>Género</th>
+        <th>Publicación</th>
+        <th>Stock</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let libro of libros; let i = index">
+        <td>{{ libro.id }}</td>
+        <td>{{ libro.titulo }}</td>
+        <td>{{ libro.descripcion }}</td>
+        <td>{{ libro.autor }}</td>
+        <td>{{ libro.genero }}</td>
+        <td>{{ libro.publicacion }}</td>
+        <td>{{ libro.stock }}</td>
+        <td>
+          <button
+            (click)="irAActualizarLibro(libro.id)"
+            class="btn btn-primary btn-sm me-2"
+          >
+            Editar
+          </button>
+          <button
+            (click)="eliminarLibro(libro.id)"
+            class="btn btn-danger btn-sm"
+          >
+            Eliminar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
